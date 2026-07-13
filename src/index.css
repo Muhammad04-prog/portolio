@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  --color-bg-dark: #0a0a0a;
+  --color-text-dark: #f2f2f0;
+  --color-muted-dark: #8c8c88;
+  --color-border-dark: #222222;
+  
+  --color-bg-light: #f7f6f3;
+  --color-text-light: #0a0a0a;
+  --color-muted-light: #70706c;
+  --color-border-light: #e0deda;
+  
+  --color-accent: #7c5cff;
+}
+
+/* Custom Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  cursor: default;
+}
+
+/* Base Light/Dark overrides */
+html.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+html:not(.dark) {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+/* Custom grain noise texture */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Hide default scrollbars for modern aesthetic but keep scrollable */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+/* Smooth custom cursor helper */
+.custom-cursor {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-accent);
+  background-color: rgba(124, 92, 255, 0.1);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Magnet utilities */
+.magnet-target {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
