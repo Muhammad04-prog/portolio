@@ -1,9 +1,11 @@
-import { useApp } from "../context/AppContext";
+"use client";
+
+import { useTranslations } from "next-intl";
 import { MapPin, Blocks, Compass, Code } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function About() {
-  const { t } = useApp();
+  const t = useTranslations();
 
   const skillsList = [
     "Next.js 15 (App Router)",

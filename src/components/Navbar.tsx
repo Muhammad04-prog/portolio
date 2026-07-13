@@ -1,16 +1,23 @@
-import { useApp } from "../context/AppContext";
+"use client";
+
+import { useTheme } from "../context/ThemeContext";
+import { useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "../i18n/routing";
 import { Sun, Moon, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import LanguageSelector from "./LanguageSelector";
 
 export default function Navbar() {
-  const { theme, toggleTheme, currentPage, navigateTo, t } = useApp();
+  const { theme, toggleTheme } = useTheme();
+  const t = useTranslations();
+  const pathname = usePathname();
+  const router = useRouter();
 
-  const navItems: { id: "home" | "about" | "projects" | "contact"; hash: string }[] = [
-    { id: "home", hash: "#/" },
-    { id: "about", hash: "#/about" },
-    { id: "projects", hash: "#/projects" },
-    { id: "contact", hash: "#/contact" },
+  const navItems: { id: "home" | "about" | "projects" | "contact"; path: string }[] = [
+    { id: "home", path: "/" },
+    { id: "about", path: "/about" },
+    { id: "projects", path: "/projects" },
+    { id: "contact", path: "/contact" },
   ];
 
   return (
@@ -18,7 +25,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-8">
         {/* Logo / Monogram */}
         <button
-          onClick={() => navigateTo("#/")}
+          onClick={() => router.push("/")}
           className="font-serif text-xl font-bold tracking-tight text-text-light dark:text-text-dark cursor-pointer group flex items-center gap-1.5"
           id="nav-logo"
         >
@@ -31,11 +38,13 @@ export default function Navbar() {
         {/* Central Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            const isActive = currentPage === item.id || (item.id === "projects" && currentPage === "project-detail");
+            const isActive = item.id === "home" 
+              ? pathname === "/" 
+              : pathname.startsWith(item.path);
             return (
               <button
                 key={item.id}
-                onClick={() => navigateTo(item.hash)}
+                onClick={() => router.push(item.path)}
                 className="relative py-2 text-sm font-medium transition-colors duration-200 cursor-pointer text-text-light/70 hover:text-text-light dark:text-text-dark/70 dark:hover:text-text-dark"
                 id={`nav-link-${item.id}`}
               >
@@ -91,7 +100,7 @@ export default function Navbar() {
 
           {/* Quick Contact CTA */}
           <button
-            onClick={() => navigateTo("#/contact")}
+            onClick={() => router.push("/contact")}
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border-light dark:border-border-dark text-xs font-mono font-medium hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all duration-300 cursor-pointer"
             id="quick-contact-button"
           >
@@ -104,11 +113,13 @@ export default function Navbar() {
       {/* Mobile Nav Rail */}
       <div className="flex md:hidden items-center justify-around border-t border-border-light/20 dark:border-border-dark/20 py-2.5 bg-bg-light/95 dark:bg-bg-dark/95 backdrop-blur-md">
         {navItems.map((item) => {
-          const isActive = currentPage === item.id || (item.id === "projects" && currentPage === "project-detail");
+          const isActive = item.id === "home" 
+            ? pathname === "/" 
+            : pathname.startsWith(item.path);
           return (
             <button
               key={item.id}
-              onClick={() => navigateTo(item.hash)}
+              onClick={() => router.push(item.path)}
               className={`text-xs font-medium cursor-pointer transition-colors duration-200 ${
                 isActive ? "text-accent" : "text-text-light/60 dark:text-text-dark/60"
               }`}

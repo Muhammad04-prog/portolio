@@ -1,9 +1,13 @@
-import { useApp } from "../context/AppContext";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { useRouter } from "../i18n/routing";
 import { ArrowDown, Code, Sparkles, Layers } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function Hero() {
-  const { t, navigateTo } = useApp();
+  const t = useTranslations();
+  const router = useRouter();
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-between px-6 sm:px-8 py-12 md:py-16 max-w-7xl mx-auto overflow-hidden">
@@ -23,7 +27,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent font-mono text-xs w-fit mb-6"
           >
             <Sparkles className="h-3.5 w-3.5 animate-pulse" />
-            <span>[ FRONTEND ENGINEER ]</span>
+            <span>[ {t("hero.title")} ]</span>
           </motion.div>
 
           {/* Epic Oversized Bold Typography Headline */}
@@ -56,7 +60,7 @@ export default function Hero() {
             className="mt-10 flex flex-wrap gap-4"
           >
             <button
-              onClick={() => navigateTo("#/projects")}
+              onClick={() => router.push("/projects")}
               className="px-6 py-3.5 bg-accent text-white dark:text-black dark:bg-white rounded-xl text-sm font-medium hover:bg-accent/90 dark:hover:bg-white/90 transition-all duration-300 shadow-lg shadow-accent/25 hover:shadow-accent/40 dark:shadow-none cursor-pointer flex items-center gap-2 group"
               id="hero-cta-projects"
             >
@@ -64,7 +68,7 @@ export default function Hero() {
               <Layers className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => navigateTo("#/contact")}
+              onClick={() => router.push("/contact")}
               className="px-6 py-3.5 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-xl text-sm font-medium hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent transition-all duration-300 cursor-pointer flex items-center gap-2 group"
               id="hero-cta-contact"
             >
@@ -89,7 +93,7 @@ export default function Hero() {
           <div className="absolute top-2.5 right-4 text-[9px] opacity-40">RAHMATSHO_MUHAMMAD.TS</div>
 
           <div className="mt-6 space-y-4 font-mono leading-relaxed">
-            <p className="text-accent">// Core Core Tech Stack Capabilities</p>
+            <p className="text-accent">// Core Tech Stack Capabilities</p>
             <div>
               <span className="text-emerald-500">const</span> <span className="text-blue-400">developer</span> = &#123;
               <div className="pl-4">
@@ -121,7 +125,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6, repeat: Infinity, repeatType: "reverse" }}
-        onClick={() => navigateTo("#/projects")}
+        onClick={() => router.push("/projects")}
         className="mx-auto flex flex-col items-center gap-2 cursor-pointer text-text-light/50 dark:text-text-dark/50 hover:text-accent dark:hover:text-accent transition-colors font-mono text-[10px]"
       >
         <span>{t("hero.scroll_indicator")}</span>

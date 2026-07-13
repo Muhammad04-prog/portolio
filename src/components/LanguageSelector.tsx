@@ -1,11 +1,16 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
-import { useApp } from "../context/AppContext";
+import { usePathname, useRouter } from "../i18n/routing";
+import { useLocale } from "next-intl";
 import { Locale } from "../types";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function LanguageSelector() {
-  const { locale, setLocale } = useApp();
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale() as Locale;
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -25,8 +30,6 @@ export default function LanguageSelector() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const currentLang = languages.find((lang) => lang.code === locale) || languages[2];
 
   return (
     <div className="relative inline-block text-left" ref={containerRef} id="language-selector-container">
@@ -61,7 +64,7 @@ export default function LanguageSelector() {
                 <button
                   key={lang.code}
                   onClick={() => {
-                    setLocale(lang.code);
+                    router.replace(pathname, { locale: lang.code });
                     setIsOpen(false);
                   }}
                   className={`w-full flex items-center justify-between px-3.5 py-2 text-left text-xs transition-colors duration-150 cursor-pointer ${

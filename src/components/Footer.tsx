@@ -1,8 +1,10 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { useApp } from "../context/AppContext";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
-  const { t } = useApp();
+  const t = useTranslations();
   const [dushanbeTime, setDushanbeTime] = useState("");
 
   useEffect(() => {
@@ -18,7 +20,6 @@ export default function Footer() {
         const formatter = new Intl.DateTimeFormat("en-US", options);
         setDushanbeTime(formatter.format(new Date()));
       } catch (e) {
-        // Fallback
         const now = new Date();
         setDushanbeTime(now.toTimeString().split(" ")[0]);
       }

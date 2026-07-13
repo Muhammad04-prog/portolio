@@ -1,6 +1,9 @@
+"use client";
+
 import React, { useRef, useState, useEffect } from "react";
-import { useApp } from "../context/AppContext";
-import { Project } from "../types";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "../i18n/routing";
+import { Project, Locale } from "../types";
 import { ArrowUpRight, FolderGit2 } from "lucide-react";
 import { motion, useSpring, useTransform, useMotionValue } from "motion/react";
 
@@ -12,7 +15,10 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index, isWide }: ProjectCardProps) {
-  const { t, locale, navigateTo } = useApp();
+  const t = useTranslations();
+  const locale = useLocale() as Locale;
+  const router = useRouter();
+  
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
@@ -96,7 +102,7 @@ export default function ProjectCard({ project, index, isWide }: ProjectCardProps
       className={`group flex flex-col justify-between p-6 sm:p-8 rounded-3xl border border-border-light dark:border-border-dark bg-black/5 dark:bg-white/5 backdrop-blur-sm hover:border-accent dark:hover:border-accent transition-all duration-300 relative overflow-hidden cursor-pointer ${
         isWide ? "md:col-span-2" : ""
       }`}
-      onClick={() => navigateTo(`#/projects/${project.slug}`)}
+      onClick={() => router.push(`/projects/${project.slug}`)}
     >
       {/* Dynamic Glow Spotlight follow effect inside the card */}
       {!isMobile && (
@@ -152,7 +158,7 @@ export default function ProjectCard({ project, index, isWide }: ProjectCardProps
         <button
           onClick={(e) => {
             e.stopPropagation(); // Prevent duplicate navigation triggers
-            navigateTo(`#/projects/${project.slug}`);
+            router.push(`/projects/${project.slug}`);
           }}
           className="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent hover:text-accent/85 border-b border-accent/25 hover:border-accent pb-0.5 transition-all duration-200 cursor-pointer w-fit"
         >

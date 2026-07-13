@@ -1,9 +1,11 @@
-import { useApp } from "../context/AppContext";
+"use client";
+
+import { useTranslations } from "next-intl";
 import { projects } from "../data/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectsGrid() {
-  const { t, locale } = useApp();
+  const t = useTranslations();
 
   return (
     <section className="px-6 sm:px-8 py-20 max-w-7xl mx-auto" id="projects-section">

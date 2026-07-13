@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Frontend Developer",
+    "subtitle": "Building elite digital interfaces, server-connected interfaces, and fluid user experiences designed for modern businesses.",
+    "projects_cta": "View my work",
+    "contact_cta": "Get in touch",
+    "scroll_indicator": "Scroll down"
+  },
+  "about": {
+    "heading": "About Me",
+    "sub_heading": "Based in Dushanbe, passionate about engineering ultra-responsive, highly functional UI designs.",
+    "bio": "Hello! I'm Rahmatsho Muhammad, a dedicated Frontend Engineer based in Dushanbe. I specialize in crafting high-end, responsive web applications with modular and solid architectural foundations. I value semantic clarity, fluid interactive craft, and highly organized code standards.",
+    "location_title": "Location",
+    "location_val": "Dushanbe, Tajikistan",
+    "stack_title": "Core Tech Stack",
+    "philosophy_title": "Work Philosophy",
+    "philosophy_val": "Rigorous step-by-step feature assembly matched with thorough checkpoint verifications to guarantee clean design and performance integrity."
+  },
+  "projects": {
+    "heading": "Selected Work",
+    "sub_heading": "A curated showcase of recent engineering craft, featuring clean code and robust systems.",
+    "view_case_study": "View Case Study →",
+    "problem": "The Problem",
+    "solution": "The Solution",
+    "result": "The Result",
+    "tech_stack": "Tech Stack",
+    "visit_live": "Visit Live Site",
+    "back": "← Back to Projects"
+  },
+  "contact": {
+    "heading": "Let's work together",
+    "sub_heading": "Have a project in mind or just want to chat? Drop a message below and I'll get back to you shortly.",
+    "name": "Your Name",
+    "email": "Email Address",
+    "message": "Your Message",
+    "placeholder_name": "John Doe",
+    "placeholder_email": "john@example.com",
+    "placeholder_message": "Hi Rahmatsho, I would like to...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully! Thank you.",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "local_time": "Local Dushanbe Time",
+    "status": "Available for new projects"
+  }
+}

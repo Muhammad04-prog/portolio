@@ -1,16 +1,27 @@
-import { useApp } from "../context/AppContext";
+"use client";
+
+import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "../i18n/routing";
+import { projects } from "../data/projects";
+import { Locale } from "../types";
 import { ArrowLeft, ExternalLink, ShieldAlert, Cpu, Sparkles, Trophy } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function ProjectDetail() {
-  const { currentProject, t, locale, navigateTo } = useApp();
+  const params = useParams();
+  const slug = params.slug as string;
+  const currentProject = projects.find((p) => p.slug === slug);
+  const t = useTranslations();
+  const locale = useLocale() as Locale;
+  const router = useRouter();
 
   if (!currentProject) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center px-6 text-center">
         <h2 className="text-2xl font-bold font-serif mb-4">Project Not Found</h2>
         <button
-          onClick={() => navigateTo("#/projects")}
+          onClick={() => router.push("/projects")}
           className="px-5 py-2.5 bg-accent text-white rounded-lg cursor-pointer"
         >
           {t("projects.back")}
@@ -28,7 +39,7 @@ export default function ProjectDetail() {
     >
       {/* Back Button */}
       <button
-        onClick={() => navigateTo("#/projects")}
+        onClick={() => router.push("/projects")}
         className="inline-flex items-center gap-2 text-xs font-mono font-medium text-text-light/60 dark:text-text-dark/60 hover:text-accent dark:hover:text-accent transition-colors mb-12 cursor-pointer group"
       >
         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />

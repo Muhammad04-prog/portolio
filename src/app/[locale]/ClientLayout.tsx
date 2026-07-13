@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
-import { AppProvider, useApp } from "./context/AppContext";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import ProjectsGrid from "./components/ProjectsGrid";
-import ProjectDetail from "./components/ProjectDetail";
-import ContactForm from "./components/ContactForm";
-import { AnimatePresence, motion } from "motion/react";
+"use client";
 
-function MainLayout() {
-  const { currentPage } = useApp();
+import { useEffect, useState, ReactNode } from "react";
+
+export default function ClientLayout({ children }: { children: ReactNode }) {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
 
-  // Custom Cursor follow effect on desktop
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -72,48 +63,7 @@ function MainLayout() {
         />
       )}
 
-      {/* Navigation Header */}
-      <Navbar />
-
-      {/* Primary Page Stage with seamless transitions */}
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPage}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-          >
-            {currentPage === "home" && (
-              <>
-                <Hero />
-                <div className="border-t border-border-light/20 dark:border-border-dark/20" />
-                <ProjectsGrid />
-              </>
-            )}
-
-            {currentPage === "about" && <About />}
-
-            {currentPage === "projects" && <ProjectsGrid />}
-
-            {currentPage === "project-detail" && <ProjectDetail />}
-
-            {currentPage === "contact" && <ContactForm />}
-          </motion.div>
-        </AnimatePresence>
-      </main>
-
-      {/* Unified Footer */}
-      <Footer />
+      {children}
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <AppProvider>
-      <MainLayout />
-    </AppProvider>
   );
 }

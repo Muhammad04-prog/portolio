@@ -1,8 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useApp } from "../context/AppContext";
+import { useTranslations } from "next-intl";
 import { Mail, Send, CheckCircle2, AlertCircle, Phone } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -16,7 +18,7 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
-  const { t } = useApp();
+  const t = useTranslations();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
