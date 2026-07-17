@@ -1,5 +1,5 @@
-import ProjectsGrid from "../../../components/ProjectsGrid";
+import WorkCarousel from "../../../components/WorkCarousel";
 
 export default function ProjectsPage() {
-  return <ProjectsGrid />;
+  return <WorkCarousel />;
 }

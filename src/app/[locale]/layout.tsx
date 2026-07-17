@@ -3,8 +3,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 import { ThemeProvider } from "../../context/ThemeContext";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import BorderFrame from "../../components/BorderFrame";
 import ClientLayout from "./ClientLayout";
 import "../../index.css";
 
@@ -37,11 +36,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <ClientLayout>
-              <Navbar />
-              <main className="flex-grow">
+              <BorderFrame>
                 {children}
-              </main>
-              <Footer />
+              </BorderFrame>
             </ClientLayout>
           </ThemeProvider>
         </NextIntlClientProvider>

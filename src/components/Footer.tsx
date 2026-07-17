@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "../i18n/routing";
 
 export default function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
   const [dushanbeTime, setDushanbeTime] = useState("");
 
   useEffect(() => {
@@ -29,6 +31,8 @@ export default function Footer() {
     const interval = setInterval(updateClock, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  if (pathname === "/") return null;
 
   return (
     <footer className="w-full border-t border-border-light/40 dark:border-border-dark/40 py-10 mt-auto transition-colors duration-300 bg-bg-light dark:bg-bg-dark">

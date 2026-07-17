@@ -12,6 +12,21 @@
     "contact_cta": "Get in touch",
     "scroll_indicator": "Scroll down"
   },
+  "narrative": {
+    "title": "Frontend Engineer",
+    "slide1_cta": "Perceive. Design. Develop",
+    "slide2_text": "Asking questions is important! Building isn't hard, knowing what and how to build is.",
+    "slide2_cta": "Reliability comes from consistency",
+    "slide3_text": "Yes AI can code and refactor. But can it think for us? Testing and Developing only what's needed.",
+    "slide3_cta": "Consistency comes from clarity",
+    "slide4_text": "Change is part of building. Building workflows, code, and processes that expect change.",
+    "slide4_cta": "Do we need code..? or solutions?",
+    "slide5_text": "Change is part of building. Building workflows, code and processes that expect change.",
+    "slide5_cta": "Cause & Effect",
+    "slide6_text": "Adapting to the pace of development environments. Sounds Interesting?",
+    "slide6_cta": "You be the perception, I'll be the tool",
+    "connect": "Let's connect.."
+  },
   "about": {
     "heading": "About Me",
     "sub_heading": "Based in Dushanbe, passionate about engineering ultra-responsive, highly functional UI designs.",

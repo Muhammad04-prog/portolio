@@ -91,7 +91,7 @@ export default function ProjectCard({ project, index, isWide }: ProjectCardProps
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-10px" }}
       transition={{ duration: 0.6, delay: (index % 2) * 0.1 }}
       style={{
         transformStyle: "preserve-3d",

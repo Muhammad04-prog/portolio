@@ -10,3 +10,5 @@ coverage/
 # Next.js build output
 .next/
 out/
+*.tsbuildinfo
+

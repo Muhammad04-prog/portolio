@@ -111,5 +111,79 @@ export const projects: Project[] = [
     },
     link: "https://windom-orcin.vercel.app",
     image: "/images/windom.png"
+  },
+  {
+    slug: "hamkor",
+    title: {
+      tj: "Hamkor Workspace",
+      ru: "Hamkor Workspace",
+      en: "Hamkor Workspace"
+    },
+    tagline: {
+      tj: "Муҳити ягона барои ҳамкорӣ ва идоракунии лоиҳаҳо",
+      ru: "Единое пространство для управления проектами и командами",
+      en: "Unified workspace for team collaboration and task tracking"
+    },
+    category: {
+      tj: "Платформаи Ҳамкорӣ",
+      ru: "Платформа Совместной Работы",
+      en: "Collaboration & Workspace"
+    },
+    tags: ["React", "Next.js", "Collaboration", "Task Management", "Tailwind CSS"],
+    metrics: "Real-time updates · Interactive Kanban · Multi-member boards",
+    problem: {
+      tj: "Дастаҳо барои ҳамоҳангсозии вазифаҳо аз якчанд барнома истифода мебурданд, ки ин боиси гум шудани маълумот ва кам шудани самаранокӣ мешуд.",
+      ru: "Командам приходилось использовать множество разрозненных инструментов, что приводило к потере фокуса и неэффективному планированию.",
+      en: "Teams struggled with fragmented productivity tools, leading to communication silos, lost files, and missed deadlines."
+    },
+    solution: {
+      tj: "Ман Hamkor Workspace-ро сохтам — платформаи муосири Kanban бо навсозии вақти воқеӣ барои идоракунии осони корҳо.",
+      ru: "Разработал Hamkor Workspace — современное интерактивное пространство с Kanban-досками, чатом и совместным редактированием задач.",
+      en: "Developed Hamkor Workspace, a fluid, interactive dashboard featuring real-time state synchronization, shared Kanban boards, and role-based permissions."
+    },
+    result: {
+      tj: "Муошират ва идоракунии дастаҳо то 40% осонтар шуд ва ҳамаи корҳо дар як ҷо ҷамъ омаданд.",
+      ru: "Интеграция команды улучшилась на 40%, позволив проектам закрываться быстрее и прозрачнее.",
+      en: "Boosted team task completion rates by 40% and simplified cross-department project visibility."
+    },
+    link: "https://hamkor-workspace.vercel.app",
+    image: "/images/hamkor.png"
+  },
+  {
+    slug: "ai-job",
+    title: {
+      tj: "AI Job Olive",
+      ru: "AI Job Olive",
+      en: "AI Job Olive"
+    },
+    tagline: {
+      tj: "Ёвари интеллектуалӣ барои пайдо кардани кор ва навиштани резюме",
+      ru: "Интеллектуальный помощник для поиска работы и создания резюме",
+      en: "Intelligent recruiter agent and resume enhancer"
+    },
+    category: {
+      tj: "Платформаи Хизматрасонии AI",
+      ru: "Платформа Поиска Работы с ИИ",
+      en: "AI Job Platform"
+    },
+    tags: ["Next.js", "Gemini AI", "Tailwind CSS", "PDF Parsing", "Job Search"],
+    metrics: "AI Engine · Real-time Feedback · Resume Analyzer",
+    problem: {
+      tj: "Муштариён барои мувофиқ кардани резюмеи худ ба талаботи бозори кор душворӣ мекашиданд ва аксар вақт ҷавоб намегирифтанд.",
+      ru: "Соискатели тратили часы на адаптацию резюме под вакансии, не получая обратной связи от автоматических систем фильтрации.",
+      en: "Job seekers struggle to customize their resumes for specific job descriptions, failing past automated resume screens (ATS)."
+    },
+    solution: {
+      tj: "Ман AI Job Olive-ро сохтам — системаи интеллектуалӣ, ки резюмеро таҳлил карда, барои беҳтар кардани он тавсияҳои мушаххас медиҳад.",
+      ru: "Создал AI Job Olive — сервис на базе искусственного интеллекта для мгновенного анализа резюме, подбора вакансий и генерации сопроводительных писем.",
+      en: "Created AI Job Olive, an AI-powered assistant that parses resumes, scores them against job posts, and uses LLMs to suggest optimal improvements."
+    },
+    result: {
+      tj: "Мусоҳибаҳои корбарон 3 маротиба бештар шуд ва ҷараёни ҳуҷҷатсупорӣ бениҳоят содда гардид.",
+      ru: "Процент приглашений на собеседования у пользователей вырос в 3 раза за счет точной оптимизации резюме.",
+      en: "Secured a 3x increase in interview callbacks for active users through automated, high-precision resume tailoring."
+    },
+    link: "https://ai-job-olive.vercel.app",
+    image: "/images/ai-job.png"
   }
 ];

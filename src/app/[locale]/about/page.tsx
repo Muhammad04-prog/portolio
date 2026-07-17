@@ -1,5 +1,5 @@
-import About from "../../../components/About";
+import BrandAbout from "../../../components/BrandAbout";
 
 export default function AboutPage() {
-  return <About />;
+  return <BrandAbout />;
 }
